@@ -2,7 +2,8 @@ import torch
 from torch import nn
 from transformers import RobertaPreTrainedModel, RobertaModel, PreTrainedModel
 
-class RobertaClassificationHead_pruned(nn.Module):
+
+class RobertaClassificationHeadPruned(nn.Module):
     """Head for sentence-level classification tasks."""
 
     def __init__(self, config):
@@ -14,7 +15,7 @@ class RobertaClassificationHead_pruned(nn.Module):
         self.dropout = nn.Dropout(classifier_dropout)
         self.out_proj_adjusted = nn.Linear(config.hidden_size*2, 1)
         
-    def forward_direction(self,features):
+    def forward_direction(self, features):
         x = features[:, 0, :]  # take <s> token (equiv. to [CLS])
         x = self.dropout(x)
         x = self.dense(x)
@@ -27,12 +28,13 @@ class RobertaClassificationHead_pruned(nn.Module):
         x_forward = self.forward_direction(features_forward)
         x_backward = self.forward_direction(features_backward)
         
-        concatenated_hs = torch.concat([x_forward, x_backward], -1)
+        concatenated_hs = torch.cat([x_forward, x_backward], -1)
                 
         x = self.out_proj_adjusted(concatenated_hs)
         return x
-    
-class MIS(RobertaPreTrainedModel):
+
+
+class TwoFoldRoberta(RobertaPreTrainedModel):
     _keys_to_ignore_on_load_missing = [r"position_ids"]
 
     def __init__(self, config):
@@ -41,7 +43,7 @@ class MIS(RobertaPreTrainedModel):
         self.config = config
 
         self.roberta = RobertaModel(config, add_pooling_layer=False)
-        self.classifier = RobertaClassificationHead_pruned(config)
+        self.classifier = RobertaClassificationHeadPruned(config)
 
         # Initialize weights and apply final processing
         self.post_init()
