@@ -26,6 +26,10 @@ class MIS:
         model_name='SkolkovoInstitute/Mutual_Implication_Score',
         device=None
     ):
+        """
+            model_name: name or path to the pretrained model (by default, 'SkolkovoInstitute/Mutual_Implication_Score')
+            device: name of the pytorch device (by default, 'cuda' or 'cpu', if CUDA is not available)
+        """
         self.model_name = model_name
         self.device = torch.device(device or 'cuda' if torch.cuda.is_available() else 'cpu')
         self.model = TwoFoldRoberta.from_pretrained(model_name).to(self.device)

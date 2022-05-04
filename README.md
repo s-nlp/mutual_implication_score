@@ -19,3 +19,7 @@ print(scores)
 
 The first two texts are semantically equivalent, their MIS is close to 1. 
 The two other texts have different meanings, and their score is low.
+
+By default, the model 
+https://huggingface.co/SkolkovoInstitute/Mutual_Implication_Score
+is used, but you can provide any other compatible model.

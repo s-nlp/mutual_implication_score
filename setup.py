@@ -25,5 +25,5 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    install_requires=['transformers>=4.13.0', 'pytorch', 'tqdm'],
+    install_requires=['transformers>=4.13.0', 'torch', 'tqdm'],
 )
