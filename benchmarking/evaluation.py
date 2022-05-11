@@ -15,15 +15,17 @@ def score_metric(
     verbose=True,
     save_directory=None,
     metric_name=None,
+    sample=None,
 ):
     """
     Arguments:
         metric_applier: function with signature (texts1: List[str], texts2: List[str]) -> scores: List[float]
-        data: path to the csv file or folder with such files, with texts to score.
-              The file should have columns 'text1', 'text2' and 'human'
-        verbose: whether to print filenames before calculation
-        save_directory: the directory to save the files with scores
-        metric_name: the column name for the metric in the saved files with scores
+        data: optional, path to the csv file or folder with such files, with texts to score.
+              The file should have columns 'text1', 'text2' and 'human'. Default: 'datasets'.
+        verbose: optional, whether to print filenames before calculation
+        save_directory: optional, the directory to save the files with scores
+        metric_name: optional, the column name for the metric in the saved files with scores
+        sample: optional,
     """
     if os.path.isfile(data):
         files = [data]
@@ -35,9 +37,11 @@ def score_metric(
         if verbose:
             print('computing scores on', os.path.basename(fn), '...')
         df = pd.read_csv(fn)
+        if sample and (df.shape[0] > sample):
+            df = df.sample(sample, random_state=1)
         values = metric_applier(df['text1'].tolist(), df['text2'].tolist())
         score = scipy.stats.spearmanr(df['human'], values).correlation
-        result[os.path.basename(fn)] = score
+        result[os.path.splitext(os.path.basename(fn))[0]] = score
         if save_directory and metric_name:
             new_fn = os.path.join(save_directory, os.path.basename(fn))
             if os.path.exists(new_fn):

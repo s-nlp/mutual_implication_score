@@ -3,6 +3,8 @@
 The file `evaluation.py` contains code (very simple) for scoring a metric against all datasets.
 The files `score_mis.py` and `score_new_metric.py` produce examples of how a metric can be scored.
 They print the scores to the console output, however, one could save the scores to a ranking table of metrics.
+The file `rank_metrics.py` shows an example of this: it ranks 5 metrics on all datasets,
+and outputs the joint ranking, and ranking by mean scores on the paraphrase and text style transfer subtasks.
 
 # About the datasets
 
