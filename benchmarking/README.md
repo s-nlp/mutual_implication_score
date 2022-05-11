@@ -6,6 +6,34 @@ They print the scores to the console output, however, one could save the scores 
 The file `rank_metrics.py` shows an example of this: it ranks 5 metrics on all datasets,
 and outputs the joint ranking, and ranking by mean scores on the paraphrase and text style transfer subtasks.
 
+for example, the command `python rank_metrics.py --sample=100` would print to the console 
+the following ranking:
+```
+ALL DATASETS
+                CAE   PG_YELP  STRAP_COHA  STRAP_formality  STRAP_shakespeare    advers      etpc       msr      paws       pit      sick    tox600  yamsh_bible  yamsh_gyafc  yamsh_para  yamsh_yelp      mean
+MIS        0.415549  0.214878    0.466443         0.703353           0.718589  0.559095  0.384958  0.244989  0.617526  0.607611  0.852189  0.609960     0.594375     0.682743    0.612201    0.471645  0.547256
+SIMCSE-SL  0.468069  0.368665    0.428248         0.654361           0.736303  0.392107  0.392581  0.375162  0.397806  0.584583  0.848232  0.443550     0.618693     0.688844    0.662353    0.423650  0.530200
+BLEURT     0.529362  0.380711    0.363089         0.623737           0.704316  0.358554  0.384958  0.448292  0.357221  0.458268  0.732774  0.621776     0.594726     0.697860    0.604586    0.394109  0.515896
+chrF       0.516965  0.310940    0.171998         0.306393           0.361257  0.139287  0.423073  0.414652  0.336228  0.392393  0.543309  0.244602     0.655907     0.610148    0.491984    0.417644  0.396049
+BLEU       0.414922  0.336272    0.017742         0.094107           0.228750  0.178425  0.372832  0.369311  0.352673  0.321114  0.436849  0.102910     0.586571     0.605118   -0.024668    0.356925  0.296866
+
+PARAPHRASE DETECTION DATASETS
+             advers      etpc       msr      paws       pit      sick  yamsh_para      mean
+MIS        0.559095  0.384958  0.244989  0.617526  0.607611  0.852189    0.612201  0.554081
+SIMCSE-SL  0.392107  0.392581  0.375162  0.397806  0.584583  0.848232    0.662353  0.521832
+BLEURT     0.358554  0.384958  0.448292  0.357221  0.458268  0.732774    0.604586  0.477808
+chrF       0.139287  0.423073  0.414652  0.336228  0.392393  0.543309    0.491984  0.391561
+BLEU       0.178425  0.372832  0.369311  0.352673  0.321114  0.436849   -0.024668  0.286648
+
+TEXT STYLE TRANSFER DATASETS
+                CAE   PG_YELP  STRAP_COHA  STRAP_formality  STRAP_shakespeare    tox600  yamsh_bible  yamsh_gyafc  yamsh_yelp      mean
+BLEURT     0.529362  0.380711    0.363089         0.623737           0.704316  0.621776     0.594726     0.697860    0.394109  0.545521
+MIS        0.415549  0.214878    0.466443         0.703353           0.718589  0.609960     0.594375     0.682743    0.471645  0.541948
+SIMCSE-SL  0.468069  0.368665    0.428248         0.654361           0.736303  0.443550     0.618693     0.688844    0.423650  0.536709
+chrF       0.516965  0.310940    0.171998         0.306393           0.361257  0.244602     0.655907     0.610148    0.417644  0.399539
+BLEU       0.414922  0.336272    0.017742         0.094107           0.228750  0.102910     0.586571     0.605118    0.356925  0.304813
+```
+
 # About the datasets
 
 Most of the data (16 out of 19 datasets) used in the paper is already fully available in a unified format

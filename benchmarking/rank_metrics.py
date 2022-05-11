@@ -118,9 +118,9 @@ if __name__ == '__main__':
     df_pd['mean'] = df_pd.mean(axis=1)
     df_tst['mean'] = df_tst.mean(axis=1)
 
-    print('ALL DATASETS')
+    print('\nALL DATASETS')
     print(df.sort_values('mean', ascending=False))
-    print('PARAPHRASE DETECTION DATASETS')
+    print('\nPARAPHRASE DETECTION DATASETS')
     print(df_pd.sort_values('mean', ascending=False))
-    print('TEXT STYLE TRANSFER DATASETS')
+    print('\nTEXT STYLE TRANSFER DATASETS')
     print(df_tst.sort_values('mean', ascending=False))
