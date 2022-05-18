@@ -11,7 +11,7 @@ Mutual Implication Score is a symmetric measure of text semantic similarity
 based on a RoBERTA model pretrained for natural language inference
 and fine-tuned on paraphrases dataset. 
 
-It is **particularly useful for paraphrases detection**, but can also be applied to other semantic similarity tasks, such as text style transfer.
+It is **particularly useful for paraphrases detection**, but can also be applied to other semantic similarity tasks, such as content similarity scoring in text style transfer.
 
 ## How to use
 The following snippet illustrates code usage:
