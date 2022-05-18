@@ -1,3 +1,8 @@
+This repository presents the results of [A large-scale computational study of content preservation measures for text style transfer and paraphrase generation](https://aclanthology.org/2022.acl-srw.23/). It consists of two parts: 
+- code for usage of Mutual Implication Score (text similarity measure which demonstrates SOTA-performance of paraphrases generation task and performs on par with SOTA measure on text style transfer task)
+- code and dataset for reproducing  a large-scale comparison of different text similarity measures
+
+
 # Mutual Implication Score
 
 ## Model overview
@@ -44,10 +49,10 @@ MIS outperforms all measures on paraphrases detection task and performs on par w
 To learn more refer to our article: [A large-scale computational study of content preservation measures for text style transfer and paraphrase generation](https://aclanthology.org/2022.acl-srw.23/)
 
 
-# Benchmarking
+# Measures comparison
 
-The `benchmarking` folder contains the code and most of the datasets used in the study of content similarity measures.
-More details are in its README file.
+One of the main impacts of our work is a large scale comparison of 57 measure on text style transfer and paraphrases detection tasks. You can reproduce the subset of our computations using the code and and most of the datasets in `benchmarking` folder. 
+More details are in [README](https://github.com/skoltech-nlp/mutual_implication_score/blob/main/benchmarking/README.md).
 
 # Citations
 
