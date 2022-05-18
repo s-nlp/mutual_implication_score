@@ -1,26 +1,48 @@
 # Mutual Implication Score
 
-Mutual implication score: a symmetric measure of text semantic similarity
-based on a RoBERTA model pretrained for natural language inference
-and fine-tuned for paraphrase detection.
+## Model overview
 
+Mutual Implication Score is a symmetric measure of text semantic similarity
+based on a RoBERTA model pretrained for natural language inference
+and fine-tuned on paraphrases dataset. 
+
+It is **particularly useful for paraphrases detection**, but can also be applied to other semantic similarity tasks, such as text style transfer.
+
+## How to use
 The following snippet illustrates code usage:
 ```python
+!pip install mutual-implication-score
+
 from mutual_implication_score import MIS
 mis = MIS(device='cpu')
-source_texts = ['I want to leave this room', 'Hello world, my name is Nick']
-paraphrases = ['I want to go out of this room', 'Hello world, my surname is Petrov']
+source_texts = ['I want to leave this room',
+                'Hello world, my name is Nick']
+paraphrases = ['I want to go out of this room',
+               'Hello world, my surname is Petrov']
 scores = mis.compute(source_texts, paraphrases)
 print(scores)
 # expected output: [0.9748, 0.0545]
 ```
 
-The first two texts are semantically equivalent, their MIS is close to 1. 
-The two other texts have different meanings, and their score is low.
+## Model details
 
-By default, the model 
-https://huggingface.co/SkolkovoInstitute/Mutual_Implication_Score
-is used, but you can provide any other compatible model.
+We slightly modify [RoBERTa-Large NLI](https://huggingface.co/ynie/roberta-large-snli_mnli_fever_anli_R1_R2_R3-nli) model architecture (see the scheme below) and fine-tune it with [QQP](https://www.kaggle.com/c/quora-question-pairs) paraphrases dataset.
+
+![alt text](https://github.com/skoltech-nlp/mutual_implication_score/blob/main/MIS.jpg)
+
+
+## Performance on Text Style Transfer and Paraphrase Detection tasks
+
+This measure was developed in terms of large scale comparison of different measures on text style transfer and paraphrases datasets.
+
+<img src="https://github.com/skoltech-nlp/mutual_implication_score/blob/main/corr_main.jpg" alt="drawing" width="1000"/>
+
+The scheme above shows the correlations of measures of different classes with human judgments on paraphrase and text style transfer datasets. The text above each dataset indicates the best-performing measure. The rightmost columns show the mean performance of measures across the datasets.
+
+MIS outperforms all measures on paraphrases detection task and performs on par with top measures on text style transfer task. 
+
+To learn more refer to our article: [A large-scale computational study of content preservation measures for text style transfer and paraphrase generation](https://aclanthology.org/2022.acl-srw.23/)
+
 
 # Benchmarking
 
