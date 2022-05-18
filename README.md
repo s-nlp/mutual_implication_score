@@ -1,4 +1,4 @@
-# mutual_implication_score
+# Mutual Implication Score
 
 Mutual implication score: a symmetric measure of text semantic similarity
 based on a RoBERTA model pretrained for natural language inference
@@ -22,7 +22,7 @@ By default, the model
 https://huggingface.co/SkolkovoInstitute/Mutual_Implication_Score
 is used, but you can provide any other compatible model.
 
-# benchmarking
+# Benchmarking
 
 The `benchmarking` folder contains the code and most of the datasets used in the study of content similarity measures.
 More details are in its README file.
