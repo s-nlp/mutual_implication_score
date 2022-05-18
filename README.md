@@ -9,9 +9,12 @@ This repository presents the results of [A large-scale computational study of co
 
 Mutual Implication Score is a symmetric measure of text semantic similarity
 based on a RoBERTA model pretrained for natural language inference
-and fine-tuned on paraphrases dataset. 
+and fine-tuned on a paraphrase detection dataset. The model weights are available 
+at https://huggingface.co/SkolkovoInstitute/Mutual_Implication_Score.
 
-It is **particularly useful for paraphrases detection**, but can also be applied to other semantic similarity tasks, such as content similarity scoring in text style transfer.
+It is **particularly useful for paraphrases detection**, 
+but can also be applied to other semantic similarity tasks, 
+such as content similarity scoring in text style transfer.
 
 ## How to use
 The following snippet illustrates code usage:
@@ -51,7 +54,7 @@ To learn more refer to our article: [A large-scale computational study of conten
 
 # Measures comparison
 
-One of the main impacts of our work is a large scale comparison of 57 measure on text style transfer and paraphrases detection tasks. You can reproduce the subset of our computations using the code and and most of the datasets in `benchmarking` folder. 
+One of the main impacts of our work is a large scale comparison of 57 measure on text style transfer and paraphrases detection tasks. You can reproduce the subset of our computations using the code and and most of the datasets in the `benchmarking` folder. 
 More details are in [README](https://github.com/skoltech-nlp/mutual_implication_score/blob/main/benchmarking/README.md).
 
 # Citations
