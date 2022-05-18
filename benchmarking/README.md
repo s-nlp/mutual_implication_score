@@ -68,3 +68,26 @@ by Laugier et al. (2021). We use these datasets under the names PG_YELP and CAE,
 
 In two datasets (ETPC and MSR), we found and fixed faults after publishing
 the paper, so the scores on them could be different from the ones in the paper.
+
+
+# Citations
+
+If you find this repository helpful, feel free to cite our publication:
+
+```
+@inproceedings{babakov-etal-2022-large,
+    title = "A large-scale computational study of content preservation measures for text style transfer and paraphrase generation",
+    author = "Babakov, Nikolay  and
+      Dale, David  and
+      Logacheva, Varvara  and
+      Panchenko, Alexander",
+    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics: Student Research Workshop",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.acl-srw.23",
+    pages = "300--321",
+    abstract = "Text style transfer and paraphrasing of texts are actively growing areas of NLP, dozens of methods for solving these tasks have been recently introduced. In both tasks, the system is supposed to generate a text which should be semantically similar to the input text. Therefore, these tasks are dependent on methods of measuring textual semantic similarity. However, it is still unclear which measures are the best to automatically evaluate content preservation between original and generated text. According to our observations, many researchers still use BLEU-like measures, while there exist more advanced measures including neural-based that significantly outperform classic approaches. The current problem is the lack of a thorough evaluation of the available measures. We close this gap by conducting a large-scale computational study by comparing 57 measures based on different principles on 19 annotated datasets. We show that measures based on cross-encoder models outperform alternative approaches in almost all cases.We also introduce the Mutual Implication Score (MIS), a measure that uses the idea of paraphrasing as a bidirectional entailment and outperforms all other measures on the paraphrase detection task and performs on par with the best measures in the text style transfer task.",
+}
+```
